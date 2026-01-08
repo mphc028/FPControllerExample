@@ -4,6 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     const float TALL_RAYCAST = 1.01f;
 
+
+    public static PlayerController Instance;
+
     [Header("References")]
     [SerializeField] private GameObject playerCamera;
 
@@ -42,6 +45,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 camOffset;
 
     Vector3 vel = Vector3.zero;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
